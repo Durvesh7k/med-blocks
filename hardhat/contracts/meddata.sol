@@ -15,8 +15,4 @@ contract meddata{
     }
 
     Record[] public records;
-
-    function newRecord()
-
-    
 }
