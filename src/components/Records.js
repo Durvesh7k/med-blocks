@@ -11,9 +11,9 @@ const NewRecords = () => {
     })
 
     return (
-        <div className='h-screen w-screen bg-gradient-to-r from-[#38065d] to-[#3e0765] overflow-x-hidden'>
+        <div className='h-screen w-screen bg-gradient-to-tr from-slate-900 via-purple-900 to-slate-900 overflow-x-hidden'>
             <div className="flex flex-col justify-center items-center">
-                <h1 className='text-white text-lg md:text-xl lg:text-3xl font-righteous tracking-wider uppercase pt-24 lg:px-32 pb-5 underline underline-offset-8 '>YOUR RECORDS</h1>
+                <h1 className='text-white text-lg md:text-xl lg:text-3xl tracking-wider uppercase pt-24 lg:px-32 pb-5 underline underline-offset-8 font-bold '>YOUR RECORDS</h1>
 
                 {/* CARDS */}
                 <div className='grid xl:grid-cols-5 xl:gap-x-10 xl:px-20 xl:gap-y-14 xl:pb-32 gap-y-6 lg:grid-cols-3 md:grid-cols-3 md:gap-x-4 pb-20 pt-10 justify-center'>

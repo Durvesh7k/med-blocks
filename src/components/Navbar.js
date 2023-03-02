@@ -3,43 +3,43 @@ import { Link, NavLink } from "react-router-dom";
 import { Transition } from '@headlessui/react';
 import { AiOutlineLogout } from 'react-icons/ai'
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { HiOutlineX,HiMenuAlt3 } from 'react-icons/hi'
+import { HiOutlineX, HiMenuAlt3 } from 'react-icons/hi'
 
 const Navbar = ({ account, onClickButton, handleLogout }) => {
 
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <nav className="bg-transparent fixed border-b-2 border-slate-700 w-screen text-gray-100 backdrop-filter backdrop-blur-lg py-3 h-[3.6rem] z-50">
-            <div className="flex items-center justify-between px-8 px-10">
-                <div className="brand-logo flex space-x-10">
-                    <Link to="/" className="text-xl font-semibold  items-center hidden sm:flex ">
+        <nav className="bg-transparent fixed shadow-md shadow-slate-600 w-screen text-gray-100 backdrop-blur-lg z-50 py-5">
+            <div className="flex items-center justify-between  px-10">
+                <div className="flex space-x-10">
+                    <Link to="/" className="text-2xl font-bold  items-center hidden sm:flex ">
                         MED-BLOCKS
                     </Link>
-                    <ul className="hidden  items-center md:flex text-lg font-roboto tracking-wide">
-                    <li>
-                        <NavLink style={({ isActive }) => ({ color: isActive ? 'cyan' : 'white' })} className='mx-1 px-2 font-semibold' to='/'>Home</NavLink>
-                    </li>
-                    <li>
-                        <NavLink style={({ isActive }) => ({ color: isActive ? 'cyan' : 'white' })} className='mx-1 px-2 font-semibold' to='/records'>Records</NavLink>
-                    </li>
-                    <li>
-                        <NavLink style={({ isActive }) => ({ color: isActive ? 'cyan' : 'white' })} to="/publish" className='mx-1 px-2 font-semibold'>Publish</NavLink>
-                    </li>
-                </ul>
+                    <ul className="hidden  items-center md:flex text-lg tracking-wide">
+                        <li>
+                            <NavLink className='mx-1 px-2 font-semibold' to='/'>Home</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className='mx-1 px-2 font-semibold' to='/records'>Records</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/publish" className='mx-1 px-2 font-semibold'>Publish</NavLink>
+                        </li>
+                    </ul>
 
 
-                
-                        </div>
-                        <ConnectButton/>
-                <div class="md:hidden flex items-center" onClick={() => setIsOpen(!isOpen)}>
-                    <button class="outline-none p-2   mobile-menu-button bg-slate-500/30 rounded-full border-1 border-gray-500 select-none focus:bg-slate-800">
+
+                </div>
+                <ConnectButton />
+                <div className="md:hidden flex items-center" onClick={() => setIsOpen(!isOpen)}>
+                    <button className="outline-none p-2   mobile-menu-button bg-slate-500/30 rounded-full border-1 border-gray-500 select-none focus:bg-slate-800">
                         {isOpen ? <HiOutlineX className='text-2xl text-gray-200' /> :
                             <HiMenuAlt3 className='text-2xl text-gray-200' />
                         }
                     </button>
                 </div>
-                
-               
+
+
 
             </div>
             {/* Menu  Mobile*/}
