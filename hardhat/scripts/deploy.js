@@ -1,31 +1,49 @@
-// We require the Hardhat Runtime Environment explicitly here. This is optional
-// but useful for running the script in a standalone fashion through `node <script>`.
-//
-// You can also run a script with `npx hardhat run <script>`. If you do that, Hardhat
-// will compile your contracts, add the Hardhat Runtime Environment's members to the
-// global scope, and execute the script.
-const hre = require("hardhat");
+const hre = require('hardhat');
+const Main = async() => {
+  const [deployer] = await hre.ethers.getSigners()
+  const Contract = await hre.ethers.getContractFactory('meddata');
+  const medContract = await Contract.deploy();
+  await medContract.deployed();
 
-async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;
-  const unlockTime = currentTimestampInSeconds + ONE_YEAR_IN_SECS;
 
-  const lockedAmount = hre.ethers.utils.parseEther("1");
+  console.log("The deployer of the contract is: ", deployer.address);
+  console.log("The contract is deployed on this address: ", medContract.address);
 
-  const Lock = await hre.ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  saveFrontendFiles(medContract, "meddata")
 
-  await lock.deployed();
+}
 
-  console.log(
-    `Lock with 1 ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
+
+function saveFrontendFiles(contract, name) {
+  const fs = require("fs");
+  const contractsDir = __dirname + "/../../src/contractsData";
+
+  if (!fs.existsSync(contractsDir)) {
+    fs.mkdirSync(contractsDir);
+  }
+
+  fs.writeFileSync(
+    contractsDir + `/${name}-address.json`,
+    JSON.stringify({ address: contract.address }, undefined, 2)
+  );
+
+  const contractArtifact = artifacts.readArtifactSync(name);
+  
+  fs.writeFileSync(
+    contractsDir + `/${name}.json`,
+    JSON.stringify(contractArtifact, null, 2)
   );
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+const runMain = async() => {
+  try{
+    await Main();
+    process.exit(1);
+  }
+  catch(err){
+    console.error(err);
+    process.exit(0);
+  }
+}
+
+runMain();
