@@ -9,12 +9,12 @@ const Publish = () => {
         <form action="" className='flex flex-col justify-center'>
           <div className='mb-4'>
             <label className='text-white ml-3'>Title</label>
-            <input type="text" name='title' placeholder='Enter Title of a record' className='w-full p-2 rounded-lg mt-2 outline-none' />
+            <input type="text" name='title' placeholder='Enter Title of a record' className='w-full p-2 rounded-lg mt-2 outline-none text-lg' />
           </div>
 
           <div className='mb-4'>
             <label className='text-white ml-3'>Description</label>
-            <textarea type="text" name='desc' rows="4" placeholder='Enter description of record' className='w-full p-2 rounded-lg mt-2 outline-none' />
+            <textarea type="text" name='desc' rows="4" placeholder='Enter description of record' className='w-full p-2 rounded-lg mt-2 outline-none text-lg' />
           </div>
 
           <div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from "react-router-dom";
 import { Transition } from '@headlessui/react';
-import { AiOutlineLogout } from 'react-icons/ai'
+// import { AiOutlineLogout } from 'react-icons/ai'
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { HiOutlineX, HiMenuAlt3 } from 'react-icons/hi'
 
@@ -15,15 +15,15 @@ const Navbar = ({ account, onClickButton, handleLogout }) => {
                     <Link to="/" className="text-2xl font-bold  items-center hidden sm:flex ">
                         MED-BLOCKS
                     </Link>
-                    <ul className="hidden  items-center md:flex text-lg tracking-wide">
+                    <ul className="hidden  items-center md:flex text-lg tracking-widest">
                         <li>
-                            <NavLink className='mx-1 px-2 font-semibold' to='/'>Home</NavLink>
+                            <NavLink style={({ isActive }) => ({ color: isActive ? 'cyan' : 'white' })} className='mx-1 px-2 font-semibold' to='/'>Home</NavLink>
                         </li>
                         <li>
-                            <NavLink className='mx-1 px-2 font-semibold' to='/records'>Records</NavLink>
+                            <NavLink style={({ isActive }) => ({ color: isActive ? 'cyan' : 'white' })} className='mx-1 px-2 font-semibold' to='/records'>Records</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/publish" className='mx-1 px-2 font-semibold'>Publish</NavLink>
+                            <NavLink style={({ isActive }) => ({ color: isActive ? 'cyan' : 'white' })} to="/publish" className='mx-1 px-2 font-semibold'>Publish</NavLink>
                         </li>
                     </ul>
 

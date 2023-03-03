@@ -13,8 +13,8 @@ const Home = () => {
         </p> */}
 
         <div className='text-white lg:px-48 flex flex-col-reverse lg:flex-row lg:space-x-10 items-center justify-center mx-auto mt-32'>
-        <div> <p className='text-justify mx-5 text-[1.4rem]'> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates perspiciatis cum libero accusantium, magni inventore iusto fugit repellat vel! Dolorum numquam repellat ducimus animi voluptatem accusantium velit tenetur itaque quibusdam. </p>
-          <button className='mx-5 mt-5 p-2 px-5 rounded-lg bg-blue-800 text-white font-bold tracking-wider hover:scale-105 transition duration-200 text-xl '><Link to='/records' className=' '>Records</Link></button>
+        <div> <p className='text-justify mx-5 text-[1.35rem] font-light' > Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates perspiciatis cum libero accusantium, magni inventore iusto fugit repellat vel! Dolorum numquam repellat ducimus animi voluptatem accusantium velit tenetur itaque quibusdam. </p>
+          <button className='mx-5 mt-5 p-2 px-5 rounded-lg bg-blue-800 text-white font-semibold  hover:scale-105 transition duration-200 text-xl tracking-wider'><Link to='/records' className=' '>Records</Link></button>
         </div>
         <img src={image} alt="" className=' h-72 lg:h-[30rem]' />
         </div>
