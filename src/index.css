@@ -10,3 +10,12 @@
     -webkit-box-orient: vertical;
     white-space: normal;
   }
+
+*{
+  font-family: 'Signika', sans-serif;
+}
+
+.font{
+  font-family: 'Signika', sans-serif;
+  font-weight: 200;
+}
