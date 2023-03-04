@@ -23,7 +23,7 @@ const Navbar = ({ account, onClickButton, handleLogout }) => {
                             <NavLink style={({ isActive }) => ({ color: isActive ? 'cyan' : 'white' })} className='mx-1 px-2 font-semibold' to='/records'>Records</NavLink>
                         </li>
                         <li>
-                            <NavLink style={({ isActive }) => ({ color: isActive ? 'cyan' : 'white' })} to="/publish" className='mx-1 px-2 font-semibold'>Publish</NavLink>
+                            <NavLink style={({ isActive }) => ({ color: isActive ? 'cyan' : 'white' })} to="/publish" className='mx-1 px-2 font-semibold'>Post</NavLink>
                         </li>
                     </ul>
 

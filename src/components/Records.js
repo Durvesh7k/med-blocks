@@ -87,7 +87,7 @@ const NewRecords = () => {
             </div>
 
             <div className='flex justify-center items-center'>
-                <div className='bg-violet-800 text-white  mt-20 lg:w-1/3 rounded-lg py-10 px-12 tracking-wide '>
+                <div className='bg-[#610890] text-white  mt-20 lg:w-1/3 rounded-lg py-10 px-12 tracking-wide '>
                     <h1 className='text-xl sm:text-2xl underline underline-offset-4 mb-7 font-bold'>Owners</h1>
                     <ul>
                         <li className='list-disc font-light text-lg'>user@hhhhahhfhhfhfh</li>
