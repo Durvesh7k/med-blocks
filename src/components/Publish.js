@@ -1,49 +1,49 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useStateContext } from '../context';
-import axios from 'axios';
-import mime from 'mime';
-import path from 'path';
-import { NFTStorage, File, Blob } from 'nft.storage'
+import { useStorageUpload } from "@thirdweb-dev/react";
+import {useContract,useSigner } from 'wagmi';
 
 
 
 const Publish = () => {
-  const [imageFile, setImageFile] = useState();
-  const [imageURI, setImageURI] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [filePath, setFilePath] = useState("");
+  const { address, contractAddress,contractABI } = useStateContext();
+  const { mutateAsync: upload } = useStorageUpload();
 
+  const { data: signer } = useSigner({
+    chainId: 8082
+  })
+  const contract = useContract({
+    address: contractAddress.address,
+    abi: contractABI,
+    signerOrProvider: signer,
+  })
 
+  const uploadToIpfs = async (e) => {
+    const uploadUrl = await upload({
+      data: [filePath],
+      options: { uploadWithGatewayUrl: true, uploadWithoutDirectory: true },
+    });
+    return uploadUrl[0]
+  };
 
-  const { address, contract } = useStateContext();
-
-
-  const uploadImage = async (imageData) => {
-    const NFT_STORAGE_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweGZkMEI1NEY4QjkxNDk1MjUzOTEwY2U3NDY0NzczRUM5OTczNmI0RGQiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY3Nzg0MjU1MDU1MiwibmFtZSI6Ik1lZGJsb2NrIn0.jKv2Z5C3rl2KKgqhDuRA_eJAqvpWWUStzRDFteS3xbU'
-    const client = new NFTStorage({ token: NFT_STORAGE_TOKEN })
-
-    const imageFile = new File([imageData], 'nft.png', { type: 'image/png' })
-    const {ipnft} = await client.store({
-      name: 'Medical Data',
-      description: 'The description of the image',
-      image: imageFile
-    })
-
-    const url = `https://ipfs.io/ipfs/${ipnft}/metadata.json`
-    console.log(url);
-    return url
-  }
-
-
-
-  const uploadData = async(e) => {
+  const uploadData = async (e) => {
     e.preventDefault();
-    console.log("You clicked on me succesfully");
-    let reader = new FileReader();
-    reader.onloadend = function () {
-        console.log(uploadImage(reader.result))
-    }
-    reader.readAsDataURL(filePath);
+
+    const imageURI = await uploadToIpfs();
+
+    const msgTx = await contract.NewRrecord(
+      `${title}`,
+      `${description}`,
+      `${imageURI}`
+    )
+
+    msgTx.wait();
+    alert("The data is succesfully uploaded!!");
   }
+
 
 
 
@@ -55,12 +55,16 @@ const Publish = () => {
         <form action="" className='flex flex-col justify-center' onSubmit={uploadData}>
           <div className='mb-4'>
             <label className='text-white ml-3'>Title</label>
-            <input type="text" name='title' placeholder='Enter Title of a record' className='w-full p-2 rounded-lg mt-2 outline-none text-lg' />
+            <input
+              onChange={e => setTitle(e.target.value)}
+              type="text" name='title' placeholder='Enter Title of a record' className='w-full p-2 rounded-lg mt-2 outline-none text-lg' />
           </div>
 
           <div className='mb-4'>
             <label className='text-white ml-3'>Description</label>
-            <textarea type="text" name='desc' rows="4" placeholder='Enter description of record' className='w-full p-2 rounded-lg mt-2 outline-none text-lg' />
+            <textarea
+              onChange={e => setDescription(e.target.value)}
+              type="text" name='desc' rows="4" placeholder='Enter description of record' className='w-full p-2 rounded-lg mt-2 outline-none text-lg' />
           </div>
 
           <div>

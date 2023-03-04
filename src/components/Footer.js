@@ -16,8 +16,7 @@ const Footer = () => {
 						<ul className="space-y-1">
 							<Link
 								to="/"
-								activeClass="listens"
-								smooth={true}
+								smooth
 								offset={50}
 								duration={500}
 								className="cursor-pointer text-black dark:text-gray-200 hover:text-white block  rounded-md  hover:underline underline-offset-2"
@@ -26,9 +25,8 @@ const Footer = () => {
 							</Link>
 							<Link
 								to="/records"
-								activeClass="buyens"
 
-								smooth={true}
+								smooth
 								offset={50}
 								duration={500}
 								className="cursor-pointer text-black dark:text-gray-200 hover:text-white block rounded-md  hover:underline underline-offset-2"
@@ -38,8 +36,7 @@ const Footer = () => {
 
 							<Link
 								to="/publish"
-								activeClass="about"
-								smooth={true}
+								smooth
 								offset={50}
 								duration={500}
 								className="cursor-pointer text-black dark:text-gray-200 hover:text-white block rounded-md  hover:underline underline-offset-2"

@@ -5,8 +5,7 @@ import {
     RainbowKitProvider,
     Chain
 } from '@rainbow-me/rainbowkit';
-import { configureChains, createClient, useAccount, WagmiConfig, useContract, useProvider } from 'wagmi';
-import { alchemyProvider } from 'wagmi/providers/alchemy';
+import { configureChains, createClient, useAccount, WagmiConfig} from 'wagmi';
 import { publicProvider } from 'wagmi/providers/public';
 import { useContext, createContext, useState, useEffect } from 'react';
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
@@ -16,34 +15,34 @@ import contractAddress from '../contractsData/meddata-address.json'
 
 
 const liberty2X = {
-    id: 8081,
-    name: 'Shardeum Liberty 2.X',
-    network: 'Shardeum Liberty 2.X',
+    id: 8082,
+    name: 'Shardeum Sphinx 1.X',
+    network: 'Shardeum Sphinx 1.X',
     iconUrl: 'https://shardeum.org/blog/wp-content/uploads/2022/05/Shardeum-Logo-Icon-Light-Square-1024x853.png',
     iconBackground: '#fff',
     nativeCurrency: {
-      decimals: 18,
-      name: 'SHM testnet',
-      symbol: 'SHM',
+        decimals: 18,
+        name: 'SHM testnet',
+        symbol: 'SHM',
     },
     rpcUrls: {
-      default: {
-        http: ['https://liberty20.shardeum.org/'],
-      },
+        default: {
+            http: ['https://sphinx.shardeum.org/'],
+        },
     },
     blockExplorers: {
-      default: { name: 'Shardeum Explorer', url: 'https://explorer-liberty20.shardeum.org/' },
-      etherscan: { name: 'Shardeum Explorer', url: 'https://explorer-liberty20.shardeum.org/' },
+        default: { name: 'Shardeum Explorer', url: 'https://explorer-sphinx.shardeum.org/' },
+        etherscan: { name: 'Shardeum Explorer', url: 'https://explorer-sphinx.shardeum.org/' },
     },
     testnet: true,
-  };
+};
 
 
 
 const { chains, provider } = configureChains(
     [liberty2X],
     [
-        jsonRpcProvider({ 
+        jsonRpcProvider({
             rpc: chain => ({ http: chain.rpcUrls.default.http[0] }),
         }),
         publicProvider()
@@ -66,21 +65,15 @@ const stateContext = createContext();
 export const StateContextProvider = ({ children }) => {
     const contractABI = abi.abi;
     const { address } = useAccount();
-    const provider = useProvider();
-    const contract = useContract({
-        address: contractAddress.address,
-        abi: contractABI,
-        signerOrProvider: provider,
-      })
-
 
     return (
         <WagmiConfig client={wagmiClient}>
             <RainbowKitProvider chains={chains}>
                 <stateContext.Provider
                     value={{
-                       address,
-                       contract
+                        address,
+                        contractAddress,
+                        contractABI,
                     }}
                 >
                     {children}

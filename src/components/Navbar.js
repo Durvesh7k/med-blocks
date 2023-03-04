@@ -61,7 +61,6 @@ const Navbar = ({ account, onClickButton, handleLogout }) => {
 
                                 <Link
                                     to="/"
-                                    activeClass="listens"
                                     smooth={true}
                                     offset={50}
                                     duration={500}
@@ -71,7 +70,6 @@ const Navbar = ({ account, onClickButton, handleLogout }) => {
                                 </Link>
                                 <Link
                                     to="/records"
-                                    activeClass="buyens"
 
                                     smooth={true}
                                     offset={50}
@@ -83,7 +81,6 @@ const Navbar = ({ account, onClickButton, handleLogout }) => {
 
                                 <Link
                                     to="/publish"
-                                    activeClass="about"
                                     smooth={true}
                                     offset={50}
                                     duration={500}
