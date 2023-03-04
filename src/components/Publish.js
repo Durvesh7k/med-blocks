@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useStateContext } from '../context';
 import { useStorageUpload } from "@thirdweb-dev/react";
-import {useContract,useSigner } from 'wagmi';
+import { useContract, useSigner } from 'wagmi';
+import {ethers} from 'ethers'; 
 
 
 
@@ -9,17 +10,8 @@ const Publish = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [filePath, setFilePath] = useState("");
-  const { address, contractAddress,contractABI } = useStateContext();
+  const { address, contractAddress, contractABI } = useStateContext();
   const { mutateAsync: upload } = useStorageUpload();
-
-  const { data: signer } = useSigner({
-    chainId: 8082
-  })
-  const contract = useContract({
-    address: contractAddress.address,
-    abi: contractABI,
-    signerOrProvider: signer,
-  })
 
   const uploadToIpfs = async (e) => {
     const uploadUrl = await upload({
@@ -30,18 +22,38 @@ const Publish = () => {
   };
 
   const uploadData = async (e) => {
-    e.preventDefault();
+    try {
+      e.preventDefault();
+      if (window.ethereum) {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(
+            contractAddress.address,
+            contractABI,
+            signer
+        )
 
-    const imageURI = await uploadToIpfs();
+        const imageURI = await uploadToIpfs();
 
-    const msgTx = await contract.NewRrecord(
-      `${title}`,
-      `${description}`,
-      `${imageURI}`
-    )
+        const msgTx = await contract.NewRrecord(
+          `${title}`,
+          `${description}`,
+          `${imageURI}`
+        )
+  
+        msgTx.wait();
+        alert("The data is succesfully uploaded!!");
 
-    msgTx.wait();
-    alert("The data is succesfully uploaded!!");
+    } else {
+        console.log('eth object not found')
+
+    }
+  }catch(e){
+    console.log(e);
+  }
+
+
+
   }
 
 

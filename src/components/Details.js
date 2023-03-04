@@ -7,9 +7,6 @@ const Details = () => {
     const location = useLocation();
 
     const data = location.state?.data;
-    console.log(data);
-
-
     return (
         <>
             <div className='pt-36 w-screen bg-gradient-to-tr from-slate-900 via-purple-900 to-slate-900 flex  justify-center items-center overflow-hidden pb-20 lg:pb-40'>
@@ -19,10 +16,10 @@ const Details = () => {
                     </div>
 
                     <div className='text-white mt-12 mb-20'>
-                        <p className='tracking-wider font-bold text-4xl break-all pb-4'>{data.heading}</p>
+                        <p className='tracking-wider font-bold text-4xl break-all pb-4'>{data.title}</p>
                         <hr />
-                        <p className='text-justify text-lg mt-6 tracking-wider font-light' >{data.description}</p>
-                        <p className='text-right mt-6 tracking-wider text-lg '>{data.time}</p>
+                        <p className='text-justify text-lg mt-6 tracking-wider font-light'>Description: {data.description}</p>
+                        <p className='text-justify mt-6 tracking-wider text-lg'>Recordtime: {data.timestamp}</p>
                     </div>
                 </div>
             </div>

@@ -21,7 +21,7 @@ const App = () => {
             <Route path='/' element={<Home />} />
             <Route path='/records' element={<Newrecord />} />
             <Route path='/Publish' element={<Publish />} />
-            <Route path='/details' element={<Details />} />
+            <Route path='/records/details' element={<Details />} />
           </Routes>
         </ThirdwebProvider>
         <Footer />
