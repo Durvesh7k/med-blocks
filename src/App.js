@@ -7,6 +7,7 @@ import Publish from './components/Publish';
 import Navbar from './components/Navbar';
 import Details from './components/Details'
 import Footer from './components/Footer';
+import Loading from './components/Loading';
 import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 
@@ -22,6 +23,8 @@ const App = () => {
             <Route path='/records' element={<Newrecord />} />
             <Route path='/Publish' element={<Publish />} />
             <Route path='/records/details' element={<Details />} />
+            <Route path='/loading' element={<Loading />} />
+
           </Routes>
         </ThirdwebProvider>
         <Footer />
