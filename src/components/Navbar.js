@@ -12,7 +12,7 @@ const Navbar = ({ account, onClickButton, handleLogout }) => {
         <nav className="bg-transparent fixed shadow-md shadow-slate-600 w-screen text-gray-100 backdrop-blur-lg z-50 py-5">
             <div className="flex items-center justify-between  px-10">
                 <div className="flex space-x-10">
-                    <Link to="/" className="text-2xl font-bold  items-center hidden sm:flex ">
+                    <Link to="/" className="text-2xl font-bold  items-center sm:flex ">
                         MED-BLOCKS
                     </Link>
                     <ul className="hidden  items-center md:flex text-lg tracking-widest">
@@ -30,7 +30,10 @@ const Navbar = ({ account, onClickButton, handleLogout }) => {
 
 
                 </div>
-                <ConnectButton />
+                <div className='hidden lg:block'>
+                    <ConnectButton />
+                </div>
+
                 <div className="md:hidden flex items-center" onClick={() => setIsOpen(!isOpen)}>
                     <button className="outline-none p-2   mobile-menu-button bg-slate-500/30 rounded-full border-1 border-gray-500 select-none focus:bg-slate-800">
                         {isOpen ? <HiOutlineX className='text-2xl text-gray-200' /> :
@@ -61,19 +64,12 @@ const Navbar = ({ account, onClickButton, handleLogout }) => {
 
                                 <Link
                                     to="/"
-                                    smooth={true}
-                                    offset={50}
-                                    duration={500}
                                     className="cursor-pointer hover:bg-blue-900/30 text-black dark:text-gray-200 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                                 >
                                     Home
                                 </Link>
                                 <Link
                                     to="/records"
-
-                                    smooth={true}
-                                    offset={50}
-                                    duration={500}
                                     className="cursor-pointer hover:bg-blue-900/30 text-black dark:text-gray-200 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                                 >
                                     Records
@@ -81,13 +77,11 @@ const Navbar = ({ account, onClickButton, handleLogout }) => {
 
                                 <Link
                                     to="/publish"
-                                    smooth={true}
-                                    offset={50}
-                                    duration={500}
                                     className="cursor-pointer hover:bg-blue-900/30 text-black dark:text-gray-200 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                                 >
                                     Publish
                                 </Link>
+                                <ConnectButton />
                             </div>
                         </div>
                     )
