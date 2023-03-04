@@ -3,7 +3,7 @@ import { Link} from "react-router-dom";
 
 const Footer = () => {
 	return (
-		<footer className="px-4 md:px-12 divide-y dark:bg-gray-800 dark:text-gray-100 tracking-wide">
+		<footer className="px-4 md:px-12 divide-y bg-[#35074D] dark:text-gray-100 tracking-wide">
 			<div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
 				<div className="lg:w-1/3">
 					<Link to='/' className="flex justify-center space-x-3 lg:justify-start">
@@ -41,21 +41,11 @@ const Footer = () => {
 								duration={500}
 								className="cursor-pointer text-black dark:text-gray-200 hover:text-white block rounded-md  hover:underline underline-offset-2"
 							>
-								Publish
+								Post
 							</Link>
 						</ul>
 					</div>
-					<div className="space-y-3">
-						<h3 className="tracking-wide uppercase dark:text-gray-50">Sponsors</h3>
-						<ul className="space-y-1">
-							<li>
-								<a rel="noopener noreferrer" href="https://www.arcana.network/" target="_blank" className=' hover:underline underline-offset-2'>Arcana</a>
-							</li>
-							<li>
-								<a rel="noopener noreferrer" href="https://www.quicknode.com/" target="_blank" className=' hover:underline underline-offset-2'>Quicknode</a>
-							</li>
-						</ul>
-					</div>
+
 
 					<div className="space-y-3">
 						<h3 className="uppercase dark:text-gray-50">Developers</h3>

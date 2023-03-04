@@ -131,10 +131,20 @@ const NewRecords = () => {
                 </div>
             </div>
             <div className='flex flex-col justify-center items-center'>
-                <h1 className='text-2xl sm:text-3xl text-white sm:ml-20 underline underline-offset-8 pb-10 '>Give Access to someone</h1>
-                <div className='sm:ml-20 flex space-x-4 flex-col space-y-8 sm:space-y-0 justify-center items-center sm:flex-row'>
-                    <input onChange={e => setNewAddress(e.target.value)} type="text" className=' p-2 w-60 sm:w-96 rounded-lg bg-slate-600 outline-none text-white tracking-wider' placeholder='Enter the account address' />
-                    <button onClick={setNewOwner} className='text-white bg-blue-600 sm:px-6 w-32 sm:w-40 py-2 rounded-lg tracking-wider hover:scale-105 transition duration-200 font-semibold '>Give Access</button>
+                <h1 className='text-2xl sm:text-3xl text-white underline underline-offset-8 pb-10 '>Give Access to someone</h1>
+                <div className=' flex sm:space-x-4 flex-col space-y-8 sm:space-y-0 justify-center items-center sm:flex-row'>
+                    <input type="text" className=' p-2 w-60 sm:w-96 rounded-lg bg-slate-600 outline-none text-white tracking-wider' placeholder='Enter the account address' />
+                    <button className='text-white bg-blue-600 sm:px-6 w-32 sm:w-40 py-[0.6rem] rounded-lg tracking-wider hover:scale-105 transition duration-200 font-semibold text-sm sm:text-[1rem] '>Give Access</button>
+                </div>
+                <hr />
+            </div>
+
+            <div className='flex justify-center items-center'>
+                <div className='bg-[#610890] text-white  mt-20 lg:w-1/3 rounded-lg py-10 px-12 tracking-wide '>
+                    <h1 className='text-xl sm:text-2xl underline underline-offset-4 mb-7 font-bold'>Owners</h1>
+                    <ul>
+                        <li className='list-disc font-light text-lg'>user@hhhhahhfhhfhfh</li>
+                    </ul>
                 </div>
             </div>
         </div>
