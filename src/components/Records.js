@@ -14,7 +14,9 @@ const NewRecords = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        setIsLoading(true);
         getAllRecords();
+        setIsLoading(false);
         console.log(recordsArray);
         console.log(ownersArray);
     }, [])
@@ -108,12 +110,14 @@ const NewRecords = () => {
 
     return (
         <div className='h-screen w-screen bg-gradient-to-tr from-slate-900 via-purple-900 to-slate-900 overflow-x-hidden  pb-40'>
-            {recordsArray.length !== null ? (
+            {!isLoading ? (
                 <div>
                     <div className="flex flex-col justify-center items-center">
                         {!isLoading ? (
                             <div>
-                                <h1 className='text-white text-lg md:text-xl lg:text-3xl tracking-wider uppercase pt-28 lg:px-32 pb-5 underline underline-offset-8 font-bold '>YOUR RECORDS</h1>
+                                <div className='flex justify-center'>
+                                    <h1 className='text-white text-lg md:text-xl lg:text-3xl tracking-wider uppercase pt-28 lg:px-32 pb-5 underline underline-offset-8 font-bold '>YOUR RECORDS</h1>
+                                </div>
                                 <div className='grid xl:grid-cols-4 xl:gap-x-28 xl:px-20 xl:gap-y-14 xl:pb-32 gap-y-6 lg:grid-cols-3 md:grid-cols-3 md:gap-x-4 pb-20 pt-10 justify-center'>
                                     {recordsArray.length < 1 ? (
                                         <div>
