@@ -143,7 +143,7 @@ const NewRecords = () => {
                             </div>
 
                         ) : (
-                            <Loading value='getting the records' />
+                            <Loading value='Getting the Records' />
                         )}
                     </div>
                     <div className='flex flex-col justify-center items-center'>
@@ -152,7 +152,7 @@ const NewRecords = () => {
                             <input onChange={e => setNewAddress(e.target.value)} type="text" className=' p-2 w-60 sm:w-96 rounded-lg bg-slate-600 outline-none text-white tracking-wider' placeholder='Enter the account address' />
                             <button onClick={setNewOwner} className='text-white bg-blue-600 sm:px-6 w-32 sm:w-40 py-[0.6rem] rounded-lg tracking-wider hover:scale-105 transition duration-200 font-semibold text-sm sm:text-[1rem] '>Give Access</button>
                         </div>
-                        <hr />
+                        <hr/>
                     </div>
 
                     <div className='flex justify-center items-center'>
