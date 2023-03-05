@@ -63,7 +63,7 @@ const stateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
     const contractABI = abi.abi;
-    const { address } = useAccount();
+    const { address,isConnecting } = useAccount();
 
 
     return (
@@ -74,6 +74,7 @@ export const StateContextProvider = ({ children }) => {
                         address,
                         contractAddress,
                         contractABI,
+                        isConnecting,
                     }}
                 >
                     {children}

@@ -13,7 +13,7 @@ const Loading = ({ value }) => {
                         <li className='dot-4'></li>
                     </ul>
                 </div>
-                <h1 className=' text-xl sm:text-2xl text-gray-200 font-light translate-y-3 tracking-wider w-60 flex justify-center items-center'>{value}</h1>
+                <h1 className=' text-xl sm:text-2xl text-gray-200 font-light translate-y-3 tracking-wider w-72 flex justify-center items-center'>{value}</h1>
             </div>
 
         </div>

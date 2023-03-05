@@ -9,7 +9,7 @@ import Loading from './Loading';
 const NewRecords = () => {
     const [recordsArray, setRecordsArray] = useState([]);
     const [ownersArray, setOwnersArray] = useState([]);
-    const { address, contractAddress, contractABI } = useStateContext();
+    const { address, contractAddress, contractABI  } = useStateContext();
     const [newAddress, setNewAddress] = useState();
     const [isLoading, setIsLoading] = useState(false);
 
@@ -17,8 +17,6 @@ const NewRecords = () => {
         setIsLoading(true);
         getAllRecords();
         setIsLoading(false);
-        console.log(recordsArray);
-        console.log(ownersArray);
     }, [])
 
 
@@ -115,7 +113,7 @@ const NewRecords = () => {
                     <div className="flex flex-col justify-center items-center">
                         {!isLoading ? (
                             <div>
-                                <div className='flex justify-center'>
+                                <div className='flex justify-center mt-2'>
                                     <h1 className='text-white text-lg md:text-xl lg:text-3xl tracking-wider uppercase pt-28 lg:px-32 pb-5 underline underline-offset-8 font-bold '>YOUR RECORDS</h1>
                                 </div>
                                 <div className='grid xl:grid-cols-4 xl:gap-x-28 xl:px-20 xl:gap-y-14 xl:pb-32 gap-y-6 lg:grid-cols-3 md:grid-cols-3 md:gap-x-4 pb-20 pt-10 justify-center'>

@@ -4,16 +4,18 @@ import { Transition } from '@headlessui/react';
 // import { AiOutlineLogout } from 'react-icons/ai'
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { HiOutlineX, HiMenuAlt3 } from 'react-icons/hi'
+import logo from "../assets/logo.png";
 
 const Navbar = ({ account, onClickButton, handleLogout }) => {
 
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <nav className="bg-transparent fixed shadow-md shadow-slate-600 w-screen text-gray-100 backdrop-blur-lg z-50 py-5">
+        <nav className="bg-transparent fixed shadow-md shadow-slate-600 w-screen text-gray-100 backdrop-blur-lg z-50 py-3">
             <div className="flex items-center justify-between  px-10">
                 <div className="flex space-x-10">
-                    <Link to="/" className="text-2xl font-bold  items-center sm:flex ">
-                        MED-BLOCKS
+                    <Link to="/" className="flex gap-2 text-2xl font-bold  items-center sm:flex ">
+                        <img className='w-20' alt='logo' src={logo} />
+                        <span>MED-BLOCKS</span>
                     </Link>
                     <ul className="hidden  items-center md:flex text-lg tracking-widest">
                         <li>
