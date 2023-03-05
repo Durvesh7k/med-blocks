@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Loading = (value) => {
+const Loading = ({ value }) => {
     return (
-        <div className='h-screen bg-gradient-to-tr from-slate-900 via-purple-900 to-slate-900 flex justify-center items-center'>
+        <div className='h-screen flex justify-center items-center'>
             <div className='mb-20'>
-                <div className='flex justify-center items-center h-96'>
+                <div className='flex justify-center items-center'>
                     <div className='flex items-center justify-center mb-0'>
                         <ul className='loader-list'>
                             <li className='dot-1'></li>

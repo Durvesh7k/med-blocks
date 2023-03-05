@@ -24,7 +24,6 @@ const App = () => {
             <Route path='/Publish' element={<Publish />} />
             <Route path='/records/details' element={<Details />} />
             <Route path='/loading' element={<Loading />} />
-
           </Routes>
         </ThirdwebProvider>
         <Footer />

@@ -3,11 +3,10 @@ import '@rainbow-me/rainbowkit/styles.css';
 import {
     getDefaultWallets,
     RainbowKitProvider,
-    Chain
 } from '@rainbow-me/rainbowkit';
 import { configureChains, createClient, useAccount, WagmiConfig} from 'wagmi';
 import { publicProvider } from 'wagmi/providers/public';
-import { useContext, createContext, useState, useEffect } from 'react';
+import { useContext, createContext} from 'react';
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import abi from '../contractsData/meddata.json';
 import contractAddress from '../contractsData/meddata-address.json'
@@ -65,6 +64,7 @@ const stateContext = createContext();
 export const StateContextProvider = ({ children }) => {
     const contractABI = abi.abi;
     const { address } = useAccount();
+
 
     return (
         <WagmiConfig client={wagmiClient}>

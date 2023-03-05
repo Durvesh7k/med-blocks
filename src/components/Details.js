@@ -14,7 +14,7 @@ const Details = () => {
             <div className='pt-36 w-screen  flex  justify-center items-center overflow-hidden '>
                 <div className='flex lg:space-x-24 w-11/12 flex-col lg:flex-row justify-center items-center lg:items-start px-3 lg:px-20 '>
                     <div className='min-w-max'>
-                        <img src={record} alt="" className=' h-72 w-72 sm:h-96 sm:w-96 md:h-80 lg:h-[30rem] lg:w-[30rem] border-4 border-black' />
+                        <img src={data.imageURL} alt="" className=' h-72 w-72 sm:h-96 sm:w-96 md:h-80 lg:h-[30rem] lg:w-[30rem] border-4 border-black' />
                     </div>
 
                     <div className='text-white mt-12 mb-20'>

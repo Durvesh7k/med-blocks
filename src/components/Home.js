@@ -13,7 +13,7 @@ const Home = () => {
         </p> */}
 
         <div className='text-white lg:px-48 flex flex-col-reverse lg:flex-row lg:space-x-10 items-center justify-center mx-auto mt-32'>
-        <div> <p className='text-justify mx-5 text-[1.35rem] font-light' > Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates perspiciatis cum libero accusantium, magni inventore iusto fugit repellat vel! Dolorum numquam repellat ducimus animi voluptatem accusantium velit tenetur itaque quibusdam. </p>
+        <div> <p className='text-justify mx-5 text-[1.35rem] font-light' > Med-Blocks is a decentralized record-keeping application that aims to revolutionize the healthcare industry. Unlike traditional record-keeping systems that are centralized and vulnerable to hacking, Med-Blocks utilizes blockchain technology to create a secure and immutable record of patient data.</p>
           <button className='mx-5 mt-5 p-2 px-5 rounded-lg bg-blue-800 text-white font-semibold  hover:scale-105 transition duration-200 text-xl tracking-wider'><Link to='/records' className=' '>Records</Link></button>
         </div>
         <img src={image} alt="" className=' h-72 lg:h-[30rem]' />

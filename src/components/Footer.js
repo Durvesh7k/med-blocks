@@ -16,7 +16,7 @@ const Footer = () => {
 						<ul className="space-y-1">
 							<Link
 								to="/"
-								smooth
+								smooth = 'true'
 								offset={50}
 								duration={500}
 								className="cursor-pointer text-black dark:text-gray-200 hover:text-white block  rounded-md  hover:underline underline-offset-2"
@@ -26,7 +26,7 @@ const Footer = () => {
 							<Link
 								to="/records"
 
-								smooth
+								smooth = 'true'
 								offset={50}
 								duration={500}
 								className="cursor-pointer text-black dark:text-gray-200 hover:text-white block rounded-md  hover:underline underline-offset-2"
@@ -36,7 +36,7 @@ const Footer = () => {
 
 							<Link
 								to="/publish"
-								smooth
+								smooth = 'true'
 								offset={50}
 								duration={500}
 								className="cursor-pointer text-black dark:text-gray-200 hover:text-white block rounded-md  hover:underline underline-offset-2"
