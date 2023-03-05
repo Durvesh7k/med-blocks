@@ -2,10 +2,16 @@ import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import record from '../assets/record.jpg'
 import download from "../assets/download.png"
+import {saveAs} from "file-saver";
 
 
 const Details = () => {
     const location = useLocation();
+
+    const handleClick = ()=>{
+        let url = {record}
+        saveAs(url, "report");
+       }
 
     const data = location.state?.data;
     return (
@@ -27,7 +33,7 @@ const Details = () => {
 
             </div>
             <div className='flex justify-center items-center mt-20'>
-            <button className='p-2 px-5 bg-blue-500 flex justify-center items-center space-x-2 text-white tracking-wider text-xl rounded-lg hover:scale-105 transition duration-200'><img src={download} alt="" className='h-6' /> <span>Download</span> </button>
+            <button onClick={handleClick} className='p-2 px-5 bg-blue-500 flex justify-center items-center space-x-2 text-white tracking-wider text-xl rounded-lg hover:scale-105 transition duration-200'><img src={download} alt="" className='h-6' /> <span>Download</span> </button>
             </div>
 
             </div>
