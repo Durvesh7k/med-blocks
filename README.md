@@ -54,7 +54,7 @@ require('dotenv').config();
 module.exports = {
   solidity: "0.8.17",
   networks: {
-    shnix: {
+    sphnix: {
       url: "https://sphinx.shardeum.org/",
       chainId: 8082,
       accounts:[`${process.env.REACT_APP_PRIVATE_KEY}`]
